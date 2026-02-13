@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+recursive-exclude .venv *
+recursive-exclude venv *
+recursive-exclude .git *
+recursive-exclude __pycache__ *
+recursive-exclude *.egg-info *
+recursive-exclude dist *
+recursive-exclude build *

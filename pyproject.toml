@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ontologia"
+version = "0.4.0"
+description = "Ontologia: Typed, event-driven ontology engine"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Alexion" }]
+license = { file = "LICENSE" }
+keywords = [
+  "ontology",
+  "knowledge-graph",
+  "entity-relation",
+  "data-modeling",
+  "event-driven",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Database",
+  "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+  "pydantic>=2.0",
+  "typer>=0.15",
+  "pyyaml>=6.0",
+  "boto3>=1.34",
+  "duckdb>=1.1",
+  "pyarrow>=18.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/lexiupon/ontologia"
+Repository = "https://github.com/lexiupon/ontologia"
+Issues = "https://github.com/lexiupon/ontologia/issues"
+
+[project.scripts]
+onto = "ontologia.cli:main"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  ".venv",
+  "venv",
+  ".git",
+  "__pycache__",
+  "*.egg-info",
+  "dist",
+  "build",
+  ".pytest_cache",
+  ".ruff_cache",
+]
+
+[tool.uv]
+package = true
+
+[project.optional-dependencies]
+dev = ["ruff>=0.14.4", "pyright>=1.1.407", "pytest>=9.0.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "strict"
+
+[dependency-groups]
+dev = ["pyright>=1.1.407", "pytest>=9.0.0", "ruff>=0.14.4"]

@@ -1,0 +1,16 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.0
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+      - id: ruff-format
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.377
+    hooks:
+      - id: pyright
+  - repo: https://github.com/pytest-dev/pytest
+    rev: 8.0.0
+    hooks:
+      - id: pytest
+        args: ["-q"]

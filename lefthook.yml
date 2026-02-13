@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: false
+  commands:
+    prettier-md:
+      glob: "*.md"
+      run: prettier --write {staged_files}
+      stage_fixed: true
+    ruff-format:
+      glob: "*.py"
+      run: uv run ruff format {staged_files}
+      stage_fixed: true
+    pyright:
+      run: uv run pyright
